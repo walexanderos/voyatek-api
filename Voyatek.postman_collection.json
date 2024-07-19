@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "bd72517a-a0aa-41e8-b07e-898aeefac954",
+		"name": "Voyatek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3375167"
+	},
+	"item": [
+		{
+			"name": "Blogs",
+			"item": [
+				{
+					"name": "View All Blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blogs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "{{blog_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"First Blog\",\r\n    \"description\": \"My first blog\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blogs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Blog",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"My Blog\",\r\n    \"description\": \"My first blog description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "{{blog_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Blog",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "{{blog_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "View All Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:blog_slug/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_slug",
+								"posts"
+							],
+							"variable": [
+								{
+									"key": "blog_slug",
+									"value": "{{blog_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:blog_slug/posts/:post_slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_slug",
+								"posts",
+								":post_slug"
+							],
+							"variable": [
+								{
+									"key": "blog_slug",
+									"value": "{{blog_slug}}"
+								},
+								{
+									"key": "post_slug",
+									"value": "{{post_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Second post",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "My second post witout image",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/DELL/Downloads/WhatsApp Image 2024-07-10 at 9.30.37 PM.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:blog_slug/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_slug",
+								"posts"
+							],
+							"variable": [
+								{
+									"key": "blog_slug",
+									"value": "{{blog_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "First post",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Changing post content",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/DELL/Pictures/5E85E406-5B38-45F8-B5B5-274375F897B4.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:blog_slug/posts/:post_slug/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_slug",
+								"posts",
+								":post_slug",
+								"update"
+							],
+							"variable": [
+								{
+									"key": "blog_slug",
+									"value": "{{blog_slug}}"
+								},
+								{
+									"key": "post_slug",
+									"value": "{{post_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:blog_slug/posts/:post_slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_slug",
+								"posts",
+								":post_slug"
+							],
+							"variable": [
+								{
+									"key": "blog_slug",
+									"value": "{{blog_slug}}"
+								},
+								{
+									"key": "post_slug",
+									"value": "{{post_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Comment to Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 1,\r\n    \"message\": \"I love this post\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:blog_slug/posts/:post_slug/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_slug",
+								"posts",
+								":post_slug",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "blog_slug",
+									"value": "{{blog_slug}}"
+								},
+								{
+									"key": "post_slug",
+									"value": "{{post_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blogs/:blog_slug/posts/:post_slug/likes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blogs",
+								":blog_slug",
+								"posts",
+								":post_slug",
+								"likes"
+							],
+							"variable": [
+								{
+									"key": "blog_slug",
+									"value": "{{blog_slug}}"
+								},
+								{
+									"key": "post_slug",
+									"value": "{{post_slug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "vg@123",
+			"type": "string"
+		},
+		{
+			"key": "blog_slug",
+			"value": "my-blog-428229392669a5d435334c5.46087131",
+			"type": "string"
+		},
+		{
+			"key": "post_slug",
+			"value": "first-post-771331466669a627cc66d23.80754866",
+			"type": "string"
+		}
+	]
+}

@@ -185,4 +185,6 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    // Default app pagination number
+    'pagination' => 20,
 ];

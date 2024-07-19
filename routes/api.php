@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\BlogController;
+use App\Http\Controllers\API\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('token')->prefix('blogs')->group(function () {
+    Route::get('/', [BlogController::class, 'index']);
+    Route::post('/', [BlogController::class, 'store']);
+    Route::get('/{slug}', [BlogController::class, 'show']);
+    Route::put('/{slug}', [BlogController::class, 'update']);
+    Route::delete('/{slug}', [BlogController::class, 'destroy']);
+
+    Route::get('/{blog_slug}/posts', [PostController::class, 'index']);
+    Route::post('/{blog_slug}/posts', [PostController::class, 'store']);
+    Route::get('/{blog_slug}/posts/{post_slug}', [PostController::class, 'show']);
+    Route::post('/{blog_slug}/posts/{post_slug}/update', [PostController::class, 'update']);
+    Route::delete('/{blog_slug}/posts/{post_slug}', [PostController::class, 'destroy']);
+    Route::post('{blog_slug}/posts/{post_slug}/comments', [PostController::class, 'addComment']);
+    Route::post('{blog_slug}/posts/{post_slug}/likes', [PostController::class, 'likePost']);
 });

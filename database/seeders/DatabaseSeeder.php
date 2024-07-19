@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         // create user
         $user = User::factory()->create();
         $this->command->info('Here is your test user details:');
-        $this->command->warn("Id: ". $user->id);
+        $this->command->warn("ID: ". $user->id);
         $this->command->warn("Email: ". $user->email);
     }
 }
