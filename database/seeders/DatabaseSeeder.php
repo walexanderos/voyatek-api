@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        if ($this->command->confirm('Do you wish to refresh migration before seeding, it will clear all old data ?')) {
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+            $this->command->call('migrate:refresh');
+            $this->command->warn("Data cleared, starting from blank database.");
+        }
+
+        // create user
+        $user = User::factory()->create();
+        $this->command->info('Here is your test user details:');
+        $this->command->warn("Id: ". $user->id);
+        $this->command->warn("Email: ". $user->email);
     }
 }
